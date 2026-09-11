@@ -1,0 +1,28 @@
+﻿{
+  "name": "bitee-optimal-bite-calculator",
+  "version": "2.6.0",
+  "description": "BitEe: Optimal Bite Calculator - Advanced Sandwich Optimization & Aerospace Telemetry System",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static build ready for Vercel'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "@supabase/ssr": "^0.5.2"
+  },
+  "keywords": [
+    "sandwich",
+    "calculator",
+    "aerospace",
+    "hackathon",
+    "useless-project",
+    "bitee",
+    "supabase",
+    "vercel"
+  ],
+  "author": "Useless Engineering Division",
+  "license": "MIT"
+}

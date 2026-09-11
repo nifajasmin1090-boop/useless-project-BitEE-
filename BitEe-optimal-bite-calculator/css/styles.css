@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-deep-space: #070b14;
+  --bg-cockpit: #0b1120;
+  --accent-cyan: #06b6d4;
+  --accent-sky: #38bdf8;
+  --accent-amber: #f59e0b;
+  --status-green: #10b981;
+  --status-red: #ef4444;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-deep-space);
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Aerospace Technical Grid Background */
+.aerospace-grid-bg {
+  background-color: #070b14;
+  background-image: 
+    linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Engineering HUD Scanlines (subtle overlay) */
+.hud-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Crisp White Card styling on Dark Background */
+.tech-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-card:hover {
+  box-shadow: 0 14px 30px -5px rgba(0, 0, 0, 0.35);
+}
+
+/* Dark HUD Card variant */
+.hud-dark-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 1rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* 3D Rotating Burger Wireframe in Hero */
+.hero-burger-scene {
+  perspective: 900px;
+}
+.hero-burger-model {
+  animation: heroSpin 18s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes heroSpin {
+  0% { transform: rotateY(0deg) rotateX(10deg); }
+  50% { transform: rotateY(180deg) rotateX(-10deg); }
+  100% { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+/* Subtle Orbiting HUD Ring */
+.orbit-ring {
+  animation: orbitRotate 14s linear infinite;
+}
+.orbit-ring-reverse {
+  animation: orbitRotateRev 20s linear infinite;
+}
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbitRotateRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Pulse animation for warnings */
+@keyframes warningPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+.animate-warning-pulse {
+  animation: warningPulse 1.8s infinite ease-in-out;
+}
+
+/* Flight Switch Toggle */
+.flight-switch-track {
+  transition: background-color 0.3s ease;
+}
+.flight-switch-thumb {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layer item drag & drop and hover */
+.layer-item {
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.layer-item:hover {
+  border-color: #38bdf8;
+}
+.layer-item.dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+/* SVG Cross-Section Styles */
+#sandwichLayersGroup path, 
+#sandwichLayersGroup rect, 
+#sandwichLayersGroup polygon {
+  transition: all 0.35s ease;
+}
+
+/* Print Styles for Certificate & Report */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, nav, #heroSection, #mainCalculatorSection, #educationalSection, #demoModal, footer {
+    display: none !important;
+  }
+  #certificateModal, #reportModal {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    background: transparent !important;
+  }
+}
